@@ -4,12 +4,36 @@
 declare -A resultsForComputatons
 declare -a dictionaryToArray
 
-#To compute the expressions
-function computateExpressions() {
+#To Compute arithmatic expression 1
+function computeExpression1() {
 	result1=`echo "scale=2; $(($a + $b * $c ))" | bc`
+	echo $result1
+}
+
+#To Compute arithmatic expression 2
+function computeExpression2() {
 	result2=`echo "scale=2; $(($a * $b + $c ))" | bc`
+	echo $result2
+}
+
+#To Compute arithmatic expression 3
+function computeExpression3() {
 	result3=`echo "scale=2; $(($c + $a / $b ))" | bc`
+	echo $result3
+}
+
+#To Compute arithmatic expression 4
+function computeExpression4() {
 	result4=`echo "scale=2; $(($a % $b + $c ))" | bc`
+	echo $result4
+}
+
+#To compute the All the arithmatic expressions
+function computateExpressions() {
+	computeExpression1
+	computeExpression2
+	computeExpression3
+	computeExpression4
 }
 
 #To store every computation in the Dictionary
