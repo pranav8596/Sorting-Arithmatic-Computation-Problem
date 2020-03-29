@@ -1,7 +1,8 @@
 #!/bin/bash -x
 
-#Declaration of the Dictionary
+#Declaration of the Dictionary and Array
 declare -A resultsForComputatons
+declare -a dictionaryToArray
 
 #To compute the expressions
 function computateExpressions() {
@@ -27,6 +28,7 @@ function storeInArray() {
 	done
 }
 
+#To sort the results in Ascending and Descending order
 function sortTheResultsOfArray() {
 	for ((i=1; i<=4; i++))
 	do
@@ -42,6 +44,8 @@ function arithmaticComputation() {
 	storeInArray
 	echo "Results in Descending order:"
 	sortTheResultsOfArray -rn
+	echo "Results in Ascending order:"
+	sortTheResultsOfArray -n
 }
 
 #Main
