@@ -1,8 +1,8 @@
 #!/bin/bash -x
 
 #Declaration of the Dictionary and Array
-declare -A resultsForComputatons
-declare -a dictionaryToArray
+declare -A computations
+declare -a resultsForComputations
 
 #To Compute arithmatic expression 1
 function computeExpression1() {
@@ -38,17 +38,17 @@ function computateExpressions() {
 
 #To store every computation in the Dictionary
 function storeInDictionary() {
-	resultsForComputatons[Expression1]=$result1
-	resultsForComputatons[Expression2]=$result2
-	resultsForComputatons[Expression3]=$result3
-	resultsForComputatons[Expression4]=$result4
+	computations[Expression1]=$result1
+	computations[Expression2]=$result2
+	computations[Expression3]=$result3
+	computations[Expression4]=$result4
 }
 
 #To store values of Dictionary into Array
 function storeInArray() {
 	for ((i=1; i<=4; i++))
 	do
-		dictionaryToArray[$i]=${resultsForComputatons[Expression$i]}
+		resultsForComputations[$i]=${computations[Expression$i]}
 	done
 }
 
@@ -56,7 +56,7 @@ function storeInArray() {
 function sortTheResultsOfArray() {
 	for ((i=1; i<=4; i++))
 	do
-		echo ${dictionaryToArray[$i]}
+		echo ${resultsForComputations[$i]}
 	done | sort $1
 
 }
