@@ -27,11 +27,21 @@ function storeInArray() {
 	done
 }
 
+function sortTheResultsOfArray() {
+	for ((i=1; i<=4; i++))
+	do
+		echo ${dictionaryToArray[$i]}
+	done | sort $1
+
+}
+
 #Perform arithmatic computation
 function arithmaticComputation() {
 	computateExpressions
 	storeInDictionary
 	storeInArray
+	echo "Results in Descending order:"
+	sortTheResultsOfArray -rn
 }
 
 #Main
