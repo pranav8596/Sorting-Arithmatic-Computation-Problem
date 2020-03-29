@@ -4,7 +4,7 @@
 declare -A resultsForComputatons
 
 #To compute the expressions
-function computation() {
+function computateExpressions() {
 	result1=`echo "scale=2; $(($a + $b * $c ))" | bc`
 	result2=`echo "scale=2; $(($a * $b + $c ))" | bc`
 	result3=`echo "scale=2; $(($c + $a / $b ))" | bc`
@@ -19,10 +19,19 @@ function storeInDictionary() {
 	resultsForComputatons[Expression4]=$result4
 }
 
+#To store values of Dictionary into Array
+function storeInArray() {
+	for ((i=1; i<=4; i++))
+	do
+		dictionaryToArray[$i]=${resultsForComputatons[Expression$i]}
+	done
+}
 
+#Perform arithmatic computation
 function arithmaticComputation() {
-	computation
+	computateExpressions
 	storeInDictionary
+	storeInArray
 }
 
 #Main
